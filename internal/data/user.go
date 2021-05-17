@@ -23,7 +23,7 @@ func (us *userRepo) GetUser(ctx context.Context, id int64) (*biz.User, error) {
 	key := fmt.Sprintf("user_%d", id)
 	val, err := us.data.rd.Get(ctx, key).Result()
 	if err == redis.Nil {
-		return nil, nil
+		return nil,  errors.Wrapf(configs.ErrNotFound, fmt.Sprintf("key: %s error: %v", key, err))
 	} else if err != nil {
 		return nil, errors.Wrapf(configs.ErrInteralFound, fmt.Sprintf("key: %s error: %v", key, err))
 	}

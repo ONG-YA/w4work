@@ -16,5 +16,5 @@ import (
 
 // initApp init servers.
 func initApp(*conf.HttpConf, *conf.RedisConf) (*w4work.App, error) {
-	panic(wire.Build(server.ProviderSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet, ))
+	panic(wire.Build(wire.NewSet(w4work.NewApp),server.ProviderSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet,  ))
 }

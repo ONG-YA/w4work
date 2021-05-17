@@ -2,6 +2,7 @@ package http
 
 import (
 	"context"
+	"fmt"
 	"github.com/pkg/errors"
 	"net"
 	"net/http"
@@ -55,6 +56,7 @@ func (s *Server) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 
 // Start start the HTTP server.
 func (s *Server) Start() error {
+	fmt.Println("start")
 	lis, err := net.Listen(s.network, s.address)
 	if err != nil {
 		return err
@@ -68,5 +70,6 @@ func (s *Server) Start() error {
 
 // Stop stop the HTTP server.
 func (s *Server) Stop() error {
+	fmt.Println("stop")
 	return s.Shutdown(context.Background())
 }

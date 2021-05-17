@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/gin-gonic/gin v1.7.1
+	github.com/go-playground/validator/v10 v10.4.1
 	github.com/go-redis/redis/v8 v8.8.2
 	github.com/google/wire v0.5.0
 	github.com/pkg/errors v0.9.1

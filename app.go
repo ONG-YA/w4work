@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"w4work/transport/http"
 )
 
 type App struct {
@@ -64,3 +65,6 @@ func (app *App) Stop() error {
 	return nil
 }
 
+func NewApp(server *http.Server) *App{
+	return New(WithServer(server))
+}
